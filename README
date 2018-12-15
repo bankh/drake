@@ -38,37 +38,8 @@ Generate matlab_rpc.proto:
 
 $ protoc file: protoc -I:. --cpp_out:. ./matlab_rpc.proto
 
-This will generate two files for the A
-  Parallel Computing Toolbox
-  System Identification Toolbox  (for only a few examples)
-  MATLAB
-  Optimization Toolbox
-  Simulink
-  Simulink 3D Animation 
-  Symbolic Math Toolbox
-
-% current exhaustive list from running unitTest(struct('dependency',true))
-  Communications System Toolbox
-  Control System Toolbox
-  Curve Fitting Toolbox
-  Parallel Computing Toolbox
-  DSP System Toolbox
-  Fixed-Point Toolbox
-  HDL Coder
-  System Identification Toolbox
-  Image Processing Toolbox
-  MATLAB
-  Optimization Toolbox
-  Simulink Report Generator
-  SimEvents
-  Simulink
-  Simulink 3D Animation
-  Simulink Control Design
-  Simulink Design Optimization
-  Simulink Verification and Validation
-  Stateflow
-  Symbolic Math Toolbox
-  Computer Vision System Toolbox
+This will generate two files:
+- matlab_rpc.pb.cc and matlab_rpc.pb.h (Still have some issues in the eigen_autodiff redefinition)
 
 License:      BSD  (https://raw.github.com/RobotLocomotion/drake/master/LICENSE.TXT)
 
