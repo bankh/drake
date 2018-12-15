@@ -1,26 +1,44 @@
 
-Name:         drake
-Maintainers:  Russ Tedrake <russt@mit.edu>
-Summary:      A planning, control, and analysis toolbox for nonlinear dynamical systems
-Description:  http://drake.mit.edu
+Edit by: Hasan Sinan Bank for the installation of drake on Ubuntu 16.04
 
+* For the MATLAB Version (branch - last_sha_with_original_matlab):
+* Required libraries:
 
-Requirements: 
-	      spotless			https://github.com/mmt/spotless
+- MATLAB 2017a
 
-Strongly Recommended Dependencies:
-	      eigen3
-	 	     
-Optional Dependencies:
-	      gurobi
-	      snopt7
-	      sedumi
-	      cplex
-	      ...
+The libraries installation is similar to standard cmake installation
+and it is as following:
+```
+	$ cd {cloned_library_folder}
+	$ mkdir build | cd build
+	$ cmake ..
+	$ make -j8 (Release would give faster computation for the library)
+	$ sudo make install (Install the library globally in /usr/)
+```
+- fmt: (https://github.com/fmtlib/fmt.git)
+- gflags: (https://github.com/gflags/gflags.git)
+- Gtest: (GTest - https://github.com/google/googletest)
+- GMock: (Absorbed in GTest - https://github.com/google/googletest)
+- tinyobjloader: (http://syoyo.github.io/tinyobjloader/)
+- Protobuf: (https://github.com/protocolbuffers/protobuf.git)
+ReadMe: https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
+```
+	$ git clone https://github.com/protocolbuffers/protobuf.git
+	$ cd protobuf
+	$ git submodule update --init --recursive
+	$ ./autogen.sh
+	
+	$ ./configure
+	$ make
+	$ make check
+	$ sudo make install
+	$ sudo ldconfig # refresh shared library cache.
+```
+Generate matlab_rpc.proto: 
 
-MATLAB Toolbox Dependencies:  
-  Control System Toolbox
-  Curve Fitting Toolbox
+$ protoc file: protoc -I:. --cpp_out:. ./matlab_rpc.proto
+
+This will generate two files for the A
   Parallel Computing Toolbox
   System Identification Toolbox  (for only a few examples)
   MATLAB
